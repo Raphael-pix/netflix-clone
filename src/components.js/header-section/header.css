@@ -71,6 +71,7 @@
   outline: 0;
   background-color: transparent;
   color: white;
+  border-bottom: 1px solid #ececec54;
 }
 .search-input::placeholder {
   color: white;

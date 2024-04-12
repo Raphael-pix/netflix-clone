@@ -49,6 +49,8 @@ export default function Header(){
 
     function toggleSearch(){
         setIsSearchVisible(!isSearchVisible)
+        setInputValue("")
+        setSearchResults([])
     }
     function handleChange(value){
         setInputValue(value)
@@ -72,7 +74,7 @@ export default function Header(){
             <div className="search-options-container">
                 <div className={`search-container ${isSearchVisible ? "visible" : ""}`}>
                      <FaSearch size={17} className="icons search" onClick={()=>toggleSearch()}/>
-                     <input type="text" name="search" placeholder="search for movies/series"className="search-input"  onChange={(e)=>handleChange(e.target.value)}/>
+                     <input type="text" name="search" placeholder="search for movies/series"className="search-input" value={inputValue} onChange={(e)=>handleChange(e.target.value)}/>
                 </div>
                 <div className="search-results">
                     {
