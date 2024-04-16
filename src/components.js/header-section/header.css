@@ -119,5 +119,9 @@
   }
   .logo {
     width: auto;
+    margin-right: 22px;
+  }
+  .right-section{
+    gap: 8px;
   }
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./rows.css";
 import fetchMovies from "../../utils/fetchmovies";
-import Popup from "../movie-popup/popup";
+import {FaAngleRight,FaAngleLeft} from "react-icons/fa"
 
 export default function Row({ title, url, isLarge }) {
   const imageUrl = "https://image.tmdb.org/t/p/original";
@@ -23,24 +23,31 @@ export default function Row({ title, url, isLarge }) {
     fetchData();
   }, [url]);
 
-function toggleIsClicked(){
-  setIsClicked(!isClicked)
+function handleClick(){
+  setIsClicked(!isClicked) 
 }
-
 
   return (
     <div className="row-container">
       <h1 className="row-title">{title}</h1>
       <div className="movie-posters">
         {movies.map((movie) => 
-          <div className={`poster ${isLarge?"poster-large":""}`} key={movie.id} onClick={()=>toggleIsClicked()}>
+          <div className={`poster ${isLarge?"poster-large":""}`} key={movie.id} onClick={()=>handleClick()}>
               <img
                 src={`${imageUrl}${ movie.poster_path}`}
                 alt={movie.title || movie.name}
                 className={`movie-poster ${isLarge?"movie-poster-large":""}`}
               />
+
           </div> 
         )}
+       {/* <div className="row-icon left" > */}
+           {/* <FaAngleLeft size={26} className='left-icon'/> */}
+       {/* </div> */}
+       {/* <div className="row-icon right"> */}
+           {/* <FaAngleRight size={26} className='right-icon'/> */}
+       {/* </div> */}
+      
       </div>
     </div>
   );
